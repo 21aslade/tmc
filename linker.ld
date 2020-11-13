@@ -707,7 +707,9 @@ SECTIONS {
 		asm/object1F.o(.text);
 		asm/object20.o(.text);
 		asm/object21.o(.text);
-		asm/figurineDevice.o(.text);
+		asm/figurineDeviceStart.o(.text);
+		src/object/figurineDevice.o(.text);
+		asm/figurineDeviceEnd.o(.text);
 		asm/eyeSwitch.o(.text);
 		asm/object24.o(.text);
 		asm/bigBarrel.o(.text);

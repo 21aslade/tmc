@@ -81,7 +81,8 @@ typedef struct {
     u8 arrowCount;
     u8 bombBagType;
     u8 quiverType;
-    u8 filler[4];
+    u8 figurineCount;
+    u8 filler[3];
     u8 itemOnA;
     u8 itemOnB;
     u8 filler2[10];
