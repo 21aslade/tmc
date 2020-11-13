@@ -17,8 +17,8 @@ void sub_08088328(Entity* this) {
     bool32 newFigurine;
     u32 startFigurine;
     u32 chosenFigurine;
-    
-    while((threshold = Random() & 0x7F) > 99);
+    do {
+    } while((threshold = Random() & 0x7F) > 99);
 
     sub_080542C0(-this->field_0x80.HALF.HI);
 
@@ -28,17 +28,17 @@ void sub_08088328(Entity* this) {
     if (threshold < (s8)this->field_0x82.HALF.HI) {
         newFigurine = FALSE;
         do {
-            if (!newFigurine) {
-                if (chosenFigurine > 136) {
-                    chosenFigurine = 1;
-                }
-                if (sub_08088160(this, chosenFigurine) && !ReadBit(gUnk_02002B0E, chosenFigurine)) {
-                    newFigurine = TRUE;
-                }
-                else {
-                    chosenFigurine++;
-                }
-                
+            if (newFigurine) {
+                break;
+            }
+            if (chosenFigurine > 136) {
+                chosenFigurine = 1;
+            }
+            if (sub_08088160(this, chosenFigurine) && !ReadBit(gUnk_02002B0E, chosenFigurine)) {
+                newFigurine = TRUE;
+            }
+            else {
+                chosenFigurine++;
             }
         } while (startFigurine != chosenFigurine);
     }
@@ -51,14 +51,14 @@ void sub_08088328(Entity* this) {
             if (chosenFigurine > 136) {
                 chosenFigurine = 1;
             }
-            else {
-                if (sub_08088160(this, chosenFigurine) && ReadBit(gUnk_02002B0E, chosenFigurine)) {
-                    newFigurine = FALSE;
-                }
-                else {
-                    chosenFigurine++;
-                }
+            
+            if (sub_08088160(this, chosenFigurine) && ReadBit(gUnk_02002B0E, chosenFigurine)) {
+                newFigurine = FALSE;
             }
+            else {
+                chosenFigurine++;
+            }
+            
         } while (startFigurine != chosenFigurine);
     }
     if (newFigurine) {
